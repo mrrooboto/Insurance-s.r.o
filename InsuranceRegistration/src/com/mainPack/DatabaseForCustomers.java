@@ -16,7 +16,7 @@ public class DatabaseForCustomers {
 	protected String username;
 	protected String password;
 	
-	// password variable for while loop
+	// checking variables for loops
 	protected boolean valid;
 	protected String confirm;
 	protected boolean confirmed;
@@ -74,7 +74,7 @@ public class DatabaseForCustomers {
 	}
 	/**
 	 * Should take as input existing username and password
-	 * If the input is correct logIn is true (succsefull)
+	 * If the input is correct logIn is true (successfull)
 	 */
 	public void logIn() {
 		while(!loggedIn) {
