@@ -3,13 +3,13 @@ package com.mainPack;
 public class GUI {
 	
 	public void welcomeAndLogin() {
-	System.out.println("""
-			Welcome to the Insurance s.r.o
-			What would you like to do ?
-			------------------------------
-			1. Login.
-			2. Create a new account.
-			""");	
+		System.out.println("""
+				Welcome to the Insurance s.r.o
+				What would you like to do ?
+				------------------------------
+				1. Login.
+				2. Create a new account.
+				""");	
 	}
 	
 	public void welcomeAndOptions() {
