@@ -16,7 +16,7 @@ public class DatabaseForCustomers {
 	protected String username;
 	protected String password;
 	
-	// checking variables for loops
+	// password variables for while loop
 	protected boolean valid;
 	protected String confirm;
 	protected boolean confirmed;
@@ -67,24 +67,24 @@ public class DatabaseForCustomers {
 		if (userNames.contains(username) && passwords.contains(password)) {
 			System.out.println("Succesfully logged in.\n");
 			loggedIn = true;
+		} else if (!userNames.contains(username) && !passwords.contains(password)){
+			System.out.println("Account not found.\n");
 		} else {
-			System.out.println("Wrong username or password.\n");
+			System.out.println("Wrong username or password. \n");
 		}
 		return loggedIn;
 	}
 	/**
 	 * Should take as input existing username and password
-	 * If the input is correct logIn is true (successfull)
+	 * If the input is correct logIn is true (succsefull)
 	 */
 	public void logIn() {
-		while(!loggedIn) {
-			System.out.println("Please fill in your username and password details.\n");
-			System.out.println("Username: ");
-			username = sc.nextLine();
-			System.out.println("Password: ");
-			password = sc.nextLine();
-			logInVerification();
-		}
+		System.out.println("Please fill in your username and password details.\n");
+		System.out.println("Username: ");
+		username = sc.nextLine();
+		System.out.println("Password: ");
+		password = sc.nextLine();
+		logInVerification();
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class DatabaseForCustomers {
 	 * will create new account via username input and password input
 	 */
 	public void createNewAccount() {
-		System.out.println("To create account you need to enter your \n new username and password.");
+		System.out.println("To create account you need to enter your \nnew username and password.");
 
 			//Username input
 			System.out.println("Username: ");
@@ -100,7 +100,7 @@ public class DatabaseForCustomers {
 			
 			//Password input, correctness check
 			while (valid == false) {
-			System.out.println("Note that password length must be at least 8 characters long and must contain at least one digit.");
+			System.out.println("Password length must be at least 8 characters long and must contain at least one digit.");
 			System.out.println("Password: ");
 			password = sc.nextLine();
 			passwordVerification();

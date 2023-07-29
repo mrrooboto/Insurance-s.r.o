@@ -20,8 +20,11 @@ public class MainProgram {
 				DB.createNewAccount();
 				break;
 			}
-		} while (option == 2);
+		} while (!DB.loggedIn); // repeat while user is not logged in
 		
 		gui.welcomeAndOptions(); //welcome screen after logging in
+		
+		
+		
 	}
 }
