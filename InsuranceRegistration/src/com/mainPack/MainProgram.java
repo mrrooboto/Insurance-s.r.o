@@ -1,5 +1,6 @@
 package com.mainPack;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class MainProgram {
 	public static void main(String... args) {
@@ -7,19 +8,21 @@ public class MainProgram {
 		Scanner sc = new Scanner(System.in); // User input	
 		DatabaseForCustomers DB = new DatabaseForCustomers(); // database instance
 		
-		int option; // option variable
+		String option; // option variable
 		
 		do {
 			gui.welcomeAndLogin(); //welcome screen before logging in
-			option = sc.nextInt(); //possibility to choose
+			option = sc.nextLine(); //possibility to choose
+			if (Pattern.matches("[12]", option)) {
 			switch (option) {
-			case 1:
+			case "1":
 				DB.logIn();
 				break;
-			case 2: 
+			case "2": 
 				DB.createNewAccount();
 				break;
 			}
+				}
 		} while (!DB.loggedIn); // repeat while user is not logged in
 		
 		gui.welcomeAndOptions(); //welcome screen after logging in

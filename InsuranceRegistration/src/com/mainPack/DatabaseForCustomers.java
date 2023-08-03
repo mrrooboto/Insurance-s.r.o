@@ -16,12 +16,6 @@ public class DatabaseForCustomers {
 	protected String username;
 	protected String password;
 	
-	// password variables for while loop
-	protected boolean valid;
-	protected String confirm;
-	protected boolean confirmed;
-	protected boolean loggedIn;
-	
 	//Scanner input
 	Scanner sc = new Scanner(System.in);
 	
@@ -29,7 +23,10 @@ public class DatabaseForCustomers {
 	/**
 	 * Checks if the conditions for password creation are met
 	 * @return password is valid
+	 * boolean variable for password 1st step password check
 	 */
+	protected boolean valid; 
+	
 	public boolean passwordVerification() {
 		if(Pattern.matches("[123456789]+", password)) {
 		} else if (password.length() > 8){
@@ -45,7 +42,10 @@ public class DatabaseForCustomers {
 	/**
 	 * Checks if passwords match in the 2nd step of the verification
 	 * @return verification confirmed
+	 * boolean to check if password matches
 	 */
+	protected boolean confirmed;
+	
 	public boolean passwordConfirmation() {
 		confirmed = false;
 		if(password.matches(confirm)) {
@@ -61,7 +61,10 @@ public class DatabaseForCustomers {
 	/**
 	 * Checks if the login details are correct
 	 * @return login checked
+	 * boolean variable to see if logging in passed the check
 	 */
+	protected boolean loggedIn;
+	
 	public boolean logInVerification() {
 		loggedIn = false;
 		if (userNames.contains(username) && passwords.contains(password)) {
@@ -76,8 +79,9 @@ public class DatabaseForCustomers {
 	}
 	/**
 	 * Should take as input existing username and password
-	 * If the input is correct logIn is true (succsefull)
+	 * If the input is correct logIn is true (successfull)
 	 */
+	
 	public void logIn() {
 		System.out.println("Please fill in your username and password details.\n");
 		System.out.println("Username: ");
@@ -90,7 +94,10 @@ public class DatabaseForCustomers {
 	/**
 	 * Method for new account creation
 	 * will create new account via username input and password input
+	 * confirm String is input to check password identity
 	 */
+	protected String confirm; 
+	
 	public void createNewAccount() {
 		System.out.println("To create account you need to enter your \nnew username and password.");
 
@@ -100,17 +107,17 @@ public class DatabaseForCustomers {
 			
 			//Password input, correctness check
 			while (valid == false) {
-			System.out.println("Password length must be at least 8 characters long and must contain at least one digit.");
-			System.out.println("Password: ");
-			password = sc.nextLine();
-			passwordVerification();
+				System.out.println("Password length must be at least 8 characters long \nmust contain at least one digit \nand cannot contain any special characters.");
+				System.out.println("Password: ");
+				password = sc.nextLine();
+				passwordVerification();
 			}
 			
 			//Password confirmation
 			while (confirmed == false) {
-			System.out.println("Confirm password: ");
-			confirm = sc.nextLine();
-			passwordConfirmation();
+				System.out.println("Confirm password: ");
+				confirm = sc.nextLine();
+				passwordConfirmation();
 			}
 			
 			System.out.println("Account succesfully created and saved !\n");
